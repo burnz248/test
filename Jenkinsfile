@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Slack Started') {
             steps {
-                slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                slackSend message:"Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
         }
         stage('Hello') {
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Slack Ended') {
             steps {
-                slackSend "Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+                slackSend message:"Build Finished - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
         }
     }
